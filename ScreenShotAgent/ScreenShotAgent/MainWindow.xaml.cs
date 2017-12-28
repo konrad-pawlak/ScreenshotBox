@@ -18,6 +18,8 @@ namespace ScreenShotAgent
 
 			PrepareNotificationIcon();
 			RegisterWindowEvents();
+
+			PrintScreenListener.StartListening();
 		}
 
 		private void PrepareNotificationIcon()
