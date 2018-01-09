@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace ScreenShotAgent
+namespace ScreenshotBox
 {
 	public class FileManager
 	{

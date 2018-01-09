@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Forms;
 
-namespace ScreenShotAgent
+namespace ScreenshotBox
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml

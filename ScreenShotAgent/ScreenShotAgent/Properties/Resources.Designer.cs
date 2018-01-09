@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ScreenShotAgent.Properties {
+namespace ScreenshotBox.Properties {
     using System;
     
     

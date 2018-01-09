@@ -1,5 +1,5 @@
-﻿
-namespace ScreenShotAgent
+
+namespace ScreenshotBox
 {
 	class PrintScreenListener
 	{
