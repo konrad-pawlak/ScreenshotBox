@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\mainIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -101,6 +104,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\status-bar-icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\mainIcon.ico" />
+    <Resource Include="Resources\sb128.png" />
+    <Resource Include="Resources\sb16.png" />
+    <Resource Include="Resources\sb192.png" />
+    <Resource Include="Resources\sb24.png" />
+    <Resource Include="Resources\sb256.png" />
+    <Resource Include="Resources\sb32.png" />
+    <Resource Include="Resources\sb384.png" />
+    <Resource Include="Resources\sb48.png" />
+    <Resource Include="Resources\sb512.png" />
+    <Resource Include="Resources\sb64.png" />
+    <Resource Include="Resources\sb8.png" />
+    <Resource Include="Resources\sb96.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
