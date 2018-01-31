@@ -23,7 +23,7 @@ namespace ScreenshotBox
 		}
 
 
-		private static Object thisLock = new Object();
+		private static object thisLock = new object();
 
 		[STAThread]
 		private void ClipboardNotification_ClipboardUpdatedEvent(object sender, EventArgs e)
