@@ -16,10 +16,26 @@ namespace ScreenshotBox
 			InitializeComponent();
 			Hide();
 
+			ClipboardNotification.ClipboardUpdatedEvent += ClipboardNotification_ClipboardUpdatedEvent;
+
 			PrepareNotificationIcon();
 			RegisterWindowEvents();
+		}
 
-			PrintScreenListener.StartListening();
+
+		private static Object thisLock = new Object();
+
+		[STAThread]
+		private void ClipboardNotification_ClipboardUpdatedEvent(object sender, EventArgs e)
+		{
+			if (System.Windows.Clipboard.ContainsImage())
+			{
+				lock (thisLock)
+				{
+					var image = System.Windows.Clipboard.GetImage();
+					FileManager.SaveBitmap(image);
+				}
+			}
 		}
 
 		private void PrepareNotificationIcon()

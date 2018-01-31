@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -10,9 +9,10 @@ namespace ScreenshotBox
 	{
 		public static void SaveBitmap(BitmapSource image)
 		{
-			FileStream stream = new FileStream(DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "new.png", FileMode.Create);
-			PngBitmapEncoder encoder = new PngBitmapEncoder();
-			TextBlock myTextBlock = new TextBlock();
+			var stream = new FileStream(DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "new.png", FileMode.Create); 
+			//TODO: Add counter to the screen name if the screenshots were taken at the same second
+			var encoder = new PngBitmapEncoder();
+			var myTextBlock = new TextBlock();
 			myTextBlock.Text = "Codec Author is: " + encoder.CodecInfo.Author.ToString();
 			encoder.Interlace = PngInterlaceOption.On;
 			encoder.Frames.Add(BitmapFrame.Create(image));
