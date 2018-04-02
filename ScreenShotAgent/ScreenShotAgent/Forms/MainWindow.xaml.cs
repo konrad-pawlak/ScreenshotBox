@@ -1,8 +1,9 @@
-﻿using System;
+﻿using ScreenshotBox.Logic;
+using System;
 using System.Windows;
 using System.Windows.Forms;
 
-namespace ScreenshotBox
+namespace ScreenshotBox.Forms
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
@@ -33,9 +34,20 @@ namespace ScreenshotBox
 				lock (thisLock)
 				{
 					var image = System.Windows.Clipboard.GetImage();
+					var blinkWindow = ShowBlinkWindow();
 					FileManager.SaveBitmap(image);
+					blinkWindow.Hide();
 				}
 			}
+		}
+
+		private static Blink ShowBlinkWindow()
+		{
+			var blinkWindow = new Blink();
+			blinkWindow.Show();
+			blinkWindow.Topmost = true;
+
+			return blinkWindow;
 		}
 
 		private void PrepareNotificationIcon()
@@ -48,14 +60,21 @@ namespace ScreenshotBox
 		{
 			notifyIcon.Icon = Properties.Resources.status_bar_icon;
 			notifyIcon.Visible = true;
-			notifyIcon.Text = "ScreenShot Agent";
+			notifyIcon.Text = "ScreenshotBox";
 		}
 
 		private void SetContextMenuForNotificationIcon()
 		{
 			notifyIcon.ContextMenu = new ContextMenu();
 			notifyIcon.ContextMenu.MenuItems.Add(new MenuItem("Settings", OpenSettigns));
+			notifyIcon.ContextMenu.MenuItems.Add(new MenuItem("About", OpenAboutWindow));
 			notifyIcon.ContextMenu.MenuItems.Add(new MenuItem("Exit", CloseApplication));
+		}
+
+		private void OpenAboutWindow(object sender, EventArgs e)
+		{
+			var aboutWindow = new About();
+			aboutWindow.Show();
 		}
 
 		private void OpenSettigns(object sender, EventArgs e)
