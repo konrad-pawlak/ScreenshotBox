@@ -14,6 +14,11 @@ namespace ScreenshotBox.Forms
 
 		public MainWindow()
 		{
+			if(ProcessHelper.IsAnotherProcessRunning())
+			{
+				this.Close();
+			}
+
 			InitializeComponent();
 			Hide();
 
@@ -22,7 +27,6 @@ namespace ScreenshotBox.Forms
 			PrepareNotificationIcon();
 			RegisterWindowEvents();
 		}
-
 
 		private static object thisLock = new object();
 
