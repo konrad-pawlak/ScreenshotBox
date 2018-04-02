@@ -33,15 +33,23 @@ namespace ScreenshotBox.Forms
 		[STAThread]
 		private void ClipboardNotification_ClipboardUpdatedEvent(object sender, EventArgs e)
 		{
-			if (System.Windows.Clipboard.ContainsImage())
+			try
 			{
-				lock (thisLock)
+				if (System.Windows.Clipboard.ContainsImage()
+					&& !System.Windows.Clipboard.ContainsText())
 				{
-					var image = System.Windows.Clipboard.GetImage();
-					var blinkWindow = ShowBlinkWindow();
-					FileManager.SaveBitmap(image);
-					blinkWindow.Hide();
+					lock (thisLock)
+					{
+						var image = System.Windows.Clipboard.GetImage();
+						var blinkWindow = ShowBlinkWindow();
+						FileManager.SaveBitmap(image);
+						blinkWindow.Hide();
+					}
 				}
+			}
+			catch(Exception)
+			{
+				// TODO: Log exceptions here
 			}
 		}
 
