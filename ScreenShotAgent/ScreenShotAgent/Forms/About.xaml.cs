@@ -23,5 +23,10 @@ namespace ScreenshotBox.Forms
 		{
 			InitializeComponent();
 		}
+
+		private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+		{
+			System.Diagnostics.Process.Start("http://radkoncy.wordpress.com");
+		}
 	}
 }

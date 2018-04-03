@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScreenshotBox.Forms"
         mc:Ignorable="d"
-        Title="About" Height="200" Width="300">
+        Title="About" Height="300" Width="600">
     <Grid>
-        <TextBlock>About</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".5*" />
+            <ColumnDefinition Width=".5*" />
+        </Grid.ColumnDefinitions>
+            <Image Margin="10" Source="/ScreenshotBox;component/Resources/appIcon.ico" />
+        
+        <StackPanel Height="auto" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock FontFamily="Segoe UI Light" FontSize="40">ScreenshotBox</TextBlock>
+            <TextBlock FontSize="14">0.3 (released 03.04.2018)</TextBlock>
+
+            <TextBlock>Radkoncy</TextBlock>
+            <TextBlock>
+                <Hyperlink NavigateUri="http://radkoncy.wordpress.com" RequestNavigate="Hyperlink_RequestNavigate">
+                    radkoncy.wordpress.com
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
