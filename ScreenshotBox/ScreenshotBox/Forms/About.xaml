@@ -5,24 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScreenshotBox.Forms"
         mc:Ignorable="d"
-        Title="About" Height="300" Width="600">
+        Title="About" Height="250" Width="600">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".5*" />
-            <ColumnDefinition Width=".5*" />
-        </Grid.ColumnDefinitions>
-            <Image Margin="10" Source="/ScreenshotBox;component/Resources/appIcon.ico" />
-        
-        <StackPanel Height="auto" Grid.Column="1" VerticalAlignment="Center">
-            <TextBlock FontFamily="Segoe UI Light" FontSize="40">ScreenshotBox</TextBlock>
-            <TextBlock FontSize="14">0.3 (released 03.04.2018)</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".8*" />
+            <RowDefinition Height=".2*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".3*" />
+                <ColumnDefinition Width=".7*" />
+            </Grid.ColumnDefinitions>
+            <Image Margin="20" Source="/ScreenshotBox;component/Resources/appIcon.ico" />
 
-            <TextBlock>Radkoncy</TextBlock>
-            <TextBlock>
-                <Hyperlink NavigateUri="http://radkoncy.wordpress.com" RequestNavigate="Hyperlink_RequestNavigate">
-                    radkoncy.wordpress.com
-                </Hyperlink>
-            </TextBlock>
-        </StackPanel>
+            <StackPanel Margin="20" Height="auto" Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock FontFamily="Segoe UI Light" FontSize="40">ScreenshotBox</TextBlock>
+                <TextBlock FontSize="14">version 0.4 <Span Foreground="Gray" >(released 04.04.2018)</Span></TextBlock>
+
+                
+            </StackPanel>
+        </Grid>
+        <Grid Background="#eeeeee" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="20,5,20,5" Height="auto" VerticalAlignment="Center">
+                <TextBlock>Copyright 2018 Radkoncy</TextBlock>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="1" Margin="20,5,20,5" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock HorizontalAlignment="Right">
+                    Blog:
+                    <Hyperlink NavigateUri="http://radkoncy.wordpress.com" RequestNavigate="Hyperlink_RequestNavigate">
+                        radkoncy.wordpress.com
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock  HorizontalAlignment="Right">
+                    Support and source code:
+                    <Hyperlink NavigateUri="https://github.com/konrad-pawlak/ScreenshotBox" RequestNavigate="Hyperlink_RequestNavigate">
+                        github.com/konrad-pawlak/ScreenshotBox
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

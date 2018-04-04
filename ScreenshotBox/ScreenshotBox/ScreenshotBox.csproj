@@ -90,7 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClipboardNotification.cs" />
+    <Compile Include="Logic\ClipboardListener.cs" />
     <Compile Include="Logic\GlobalKeyboardHook.cs" />
+    <Compile Include="Logic\TrayHelper.cs" />
     <Compile Include="Logic\ProcessHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
