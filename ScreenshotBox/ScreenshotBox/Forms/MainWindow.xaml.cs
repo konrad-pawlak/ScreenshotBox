@@ -16,7 +16,9 @@ namespace ScreenshotBox.Forms
 		{
 			if(ProcessHelper.IsAnotherProcessRunning())
 			{
+				System.Windows.MessageBox.Show("Another instance is already running");
 				this.Close();
+				return;
 			}
 
 			InitializeComponent();
@@ -105,6 +107,11 @@ namespace ScreenshotBox.Forms
 		}
 
 		private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			HideNotifyIcon();
+		}
+
+		private void HideNotifyIcon()
 		{
 			notifyIcon.Visible = false;
 		}
