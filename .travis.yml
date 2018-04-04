@@ -1,2 +1,2 @@
 language: csharp
-solution: ScreenshotBox\ScreenshotBox.sln
+solution: ScreenshotBox/ScreenshotBox.sln
