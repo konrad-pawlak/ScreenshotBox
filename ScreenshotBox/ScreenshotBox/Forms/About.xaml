@@ -5,7 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScreenshotBox.Forms"
         mc:Ignorable="d"
-        Title="About" Height="250" Width="600">
+        Title="About" Height="250" Width="600" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style BasedOn="{StaticResource {x:Type TextBlock}}"
+               TargetType="TextBlock"
+               x:Key="BottomTextBlock">
+            <Setter Property="Margin" Value="5,0,5,0" />
+        </Style>
+        
+        <Style BasedOn="{StaticResource BottomTextBlock}"
+               TargetType="TextBlock"
+               x:Key="BottomTextBlockLeft">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+        <Style BasedOn="{StaticResource BottomTextBlock}"
+               TargetType="TextBlock"
+               x:Key="BottomUrl">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height=".8*" />
@@ -21,33 +39,39 @@
             <StackPanel Margin="20" Height="auto" Grid.Column="1" VerticalAlignment="Center">
                 <TextBlock FontFamily="Segoe UI Light" FontSize="40">ScreenshotBox</TextBlock>
                 <TextBlock FontSize="14">version 0.4 <Span Foreground="Gray" >(released 04.04.2018)</Span></TextBlock>
-
+                <TextBlock>Copyright 2018 Radkoncy</TextBlock>
                 
             </StackPanel>
         </Grid>
         <Grid Background="#eeeeee" Grid.Row="1">
+            <Grid Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Margin="20,5,20,5" Height="auto" VerticalAlignment="Center">
-                <TextBlock>Copyright 2018 Radkoncy</TextBlock>
-            </StackPanel>
-            
-            <StackPanel Grid.Column="1" Margin="20,5,20,5" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <TextBlock HorizontalAlignment="Right">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0"  Style="{StaticResource BottomTextBlockLeft}">
                     Blog:
+            </TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource BottomUrl}">
+
                     <Hyperlink NavigateUri="http://radkoncy.wordpress.com" RequestNavigate="Hyperlink_RequestNavigate">
                         radkoncy.wordpress.com
                     </Hyperlink>
-                </TextBlock>
-                <TextBlock  HorizontalAlignment="Right">
+            </TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource BottomTextBlockLeft}">
                     Support and source code:
+            </TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource BottomUrl}">
                     <Hyperlink NavigateUri="https://github.com/konrad-pawlak/ScreenshotBox" RequestNavigate="Hyperlink_RequestNavigate">
                         github.com/konrad-pawlak/ScreenshotBox
                     </Hyperlink>
                 </TextBlock>
-            </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
